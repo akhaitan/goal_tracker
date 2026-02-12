@@ -1,16 +1,35 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
 
 export default function LoginPage() {
   const [input, setInput] = useState('')
-  const { login, isLoggedIn } = useUser()
+  const { login, isLoggedIn, username } = useUser()
   const navigate = useNavigate()
 
-  // If already logged in, redirect
   if (isLoggedIn) {
-    navigate('/dashboard', { replace: true })
-    return null
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-sm text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome back, @{username}</h1>
+          <p className="text-sm text-gray-500 mb-6">Where would you like to go?</p>
+          <div className="space-y-3">
+            <Link
+              to="/dashboard"
+              className="block w-full bg-blue-600 text-white py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              My Dashboard
+            </Link>
+            <Link
+              to="/global"
+              className="block w-full bg-gray-100 text-gray-700 py-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+            >
+              Global Tracking
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   function handleSubmit(e) {
