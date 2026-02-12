@@ -6,14 +6,11 @@ const NEW_GOAL_VALUE = '__new__'
 
 const PRESET_GOALS = [
   // Cumulative
-  'Pushups', 'Miles run', 'Books read', 'Glasses of water',
-  'Words written', 'Miles biked', 'Pull-ups', 'Steps walked',
+  'Pushups', 'Words written', 'Pull-ups',
   // Absolute
-  'Goal weight', 'Mile time', 'Bench press', 'Plank hold', 'Savings',
+  'Goal weight', 'Mile time', 'Half marathon time', 'Body fat %', 'Plank hold', 'Savings',
   // Streak
-  'Meditate daily', 'Exercise daily', 'Read daily', 'Journal daily',
-  'No alcohol', 'No social media', 'Sleep 8 hours', 'Practice guitar',
-  'Study a language', 'Cold shower',
+  'Read daily', 'No alcohol', 'Sleep 8 hours', 'Study a language',
 ]
 
 export default function GoalForm({ onSave, onCancel, existingGoal }) {
